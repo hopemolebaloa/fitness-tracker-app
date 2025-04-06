@@ -1,21 +1,30 @@
-from rest_framework import generics, permissions, status
+# users/views.py
+from rest_framework import generics, status, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from .serializers import UserSerializer, UserProfileSerializer
 from django.contrib.auth import get_user_model
-from .serializers import UserSerializer, UserDetailsSerializer
 
 User = get_user_model()
 
-class RegisterView(generics.CreateAPIView):
-    """API endpoint for user registration"""
-    queryset = User.objects.all()
-    permission_classes = (permissions.AllowAny,)
+class UserRegistrationView(generics.CreateAPIView):
+    """View for user registration"""
     serializer_class = UserSerializer
+    permission_classes = [permissions.AllowAny]
 
-class UserDetailView(generics.RetrieveUpdateAPIView):
-    """API endpoint for retrieving and updating user details"""
-    serializer_class = UserDetailsSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+class UserProfileView(APIView):
+    """View for retrieving and updating user profile"""
+    permission_classes = [permissions.IsAuthenticated]
     
-    def get_object(self):
-        return self.request.user
+    def get(self, request):
+        """Get user profile"""
+        serializer = UserProfileSerializer(request.user)
+        return Response(serializer.data)
+    
+    def put(self, request):
+        """Update user profile"""
+        serializer = UserProfileSerializer(request.user, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
