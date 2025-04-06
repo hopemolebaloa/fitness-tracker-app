@@ -125,6 +125,8 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10
 }
 
+from datetime import timedelta
+
 # JWT settings
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=1),
