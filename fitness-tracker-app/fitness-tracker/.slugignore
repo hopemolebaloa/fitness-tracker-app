@@ -1,0 +1,25 @@
+# Virtual environment
+venv/
+
+# Local database
+db.sqlite3
+
+# Docker-related files (not needed on Heroku)
+docker-compose.yml
+Dockerfile.prod
+
+# Development and documentation files
+README.md
+*.md
+
+# Temporary files
+*.pyc
+__pycache__/
+
+# Local static files (Heroku will collect these during deployment)
+static/
+staticfiles/
+
+# Any other large or unnecessary files
+*.log
+*.bak
