@@ -1,0 +1,66 @@
+[
+    {
+        "model": "activities.activitytype",
+        "pk": 1,
+        "fields": {
+            "name": "Running",
+            "description": "Outdoor or treadmill running"
+        }
+    },
+    {
+        "model": "activities.activitytype",
+        "pk": 2,
+        "fields": {
+            "name": "Cycling",
+            "description": "Outdoor cycling or stationary bike"
+        }
+    },
+    {
+        "model": "activities.activitytype",
+        "pk": 3,
+        "fields": {
+            "name": "Weightlifting",
+            "description": "Resistance training with weights"
+        }
+    },
+    {
+        "model": "activities.activitytype",
+        "pk": 4,
+        "fields": {
+            "name": "Swimming",
+            "description": "Pool or open water swimming"
+        }
+    },
+    {
+        "model": "activities.activitytype",
+        "pk": 5,
+        "fields": {
+            "name": "Walking",
+            "description": "Casual or power walking"
+        }
+    },
+    {
+        "model": "activities.activitytype",
+        "pk": 6,
+        "fields": {
+            "name": "HIIT",
+            "description": "High-Intensity Interval Training"
+        }
+    },
+    {
+        "model": "activities.activitytype",
+        "pk": 7,
+        "fields": {
+            "name": "Yoga",
+            "description": "Various styles of yoga practice"
+        }
+    },
+    {
+        "model": "activities.activitytype",
+        "pk": 8,
+        "fields": {
+            "name": "Pilates",
+            "description": "Core strengthening exercises"
+        }
+    }
+]
